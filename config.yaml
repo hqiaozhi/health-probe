@@ -1,0 +1,53 @@
+app:
+    env: dev
+    name: health-probe
+    host: 0.0.0.0
+    port: 8080
+    version: v1.0.0
+db:
+    gorm:
+        conn_max_idle_time: 10m
+        conn_max_lifetime: 1h
+        log_mode: silent
+        max_idle_conns: 3
+        max_open_conns: 5
+        slow_threshold: 200ms
+    sqlite:
+        auto_migrate: true
+        cache_size: 4096
+        disable_foreign_key: true
+        journal_mode: WAL
+        path: ./health-probe.db
+        synchronous: FULL
+email:
+    from: 11111111@qq.com
+    password: 456dfa56df4aaewfewaef
+    smtp_server: smtp.qq.com:587
+    username: 11111111@qq.com
+gin:
+    idle_timeout: 15s
+    max_multipart_memory: 10485760
+    mode: debug
+    read_timeout: 5s
+    write_timeout: 10s
+jwt:
+    audience: api-users
+    expire_hours: 2
+    issuer: health-probe
+    refresh_hours: 24
+    secret_key: default-secret-key-32bytes-long-1234
+    signing_method: HS256
+log:
+    log_add_caller: true
+    log_color: true
+    log_compress: false
+    log_dir: /var/logs/health-probe/
+    log_file: health-probe.log
+    log_level: info
+    log_max_age: 7
+    log_max_backups: 3
+    log_max_size: 100
+login:
+    admin_password: admin123
+    admin_user: admin
+    users: []
